@@ -1,7 +1,6 @@
 <template>
-  払出記録
+  TBD
 </template>
 
 <script lang="ts" setup>
-  //
 </script>

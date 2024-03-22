@@ -1,7 +1,7 @@
 <template>
-  商品台帳
+  <ItemsTable />
 </template>
 
 <script lang="ts" setup>
-  //
+import ItemsTable from "@/components/items/ItemsTable.vue";
 </script>
