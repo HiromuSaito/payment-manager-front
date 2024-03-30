@@ -19,7 +19,7 @@
         ></v-list-item>
         <v-list-item
           title="払出記録"
-          to="/payouts"
+          to="/payments"
           @click="hideDrawer"
         ></v-list-item>
       </v-list>

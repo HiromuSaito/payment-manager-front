@@ -1,5 +1,4 @@
 <template>
-  <v-container class="w-75">
     <v-data-table
       v-model:items-per-page="itemsPerPage"
       :headers="headers"
@@ -9,12 +8,11 @@
       class="elevation-1"
       fixed-header
     ></v-data-table>
-  </v-container>
 </template>
 <script setup lang="ts">
 import { ref } from "vue";
 import payment from "../../api/payment";
-import {PAYMENT_TYPE} from "../../const/const"
+import {PAYMENT_TYPE} from "../../const/"
 
 const items = ref([])
 payment.getList().then(res => {
