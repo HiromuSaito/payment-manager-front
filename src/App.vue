@@ -1,7 +1,7 @@
 <template>
   <v-app>
     <v-app-bar color="primary">
-      <v-app-bar-title> Stock-Manager </v-app-bar-title>
+      <v-app-bar-title> Payment-Manager </v-app-bar-title>
       <v-btn>
         <v-icon> mdi-home </v-icon>
       </v-btn>
