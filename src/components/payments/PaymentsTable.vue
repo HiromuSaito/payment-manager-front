@@ -1,8 +1,8 @@
 <template>
   <v-data-table
-    v-model:items-per-page="itemsPerPage"
+    v-model:items-per-page="paymentsPerPage"
     :headers="headers"
-    :items="items"
+    :items="payments"
     :items-per-page-options="pages"
     items-per-page-text="表示件数"
     class="elevation-1"
@@ -14,18 +14,18 @@ import { ref } from 'vue';
 import payment from '../../api/payment';
 import { PAYMENT_TYPE } from '../../const/';
 
-const items = ref([]);
+const payments = ref([]);
 payment
   .getList()
   .then((res) => {
     console.log(res);
-    items.value = res.data.payments;
+    payments.value = res.data.payments;
   })
   .catch((e) => {
     console.log(e);
   });
 
-const itemsPerPage = ref(-1); // ALL
+const paymentsPerPage = ref(-1); // ALL
 const pages = [{ value: -1, title: '$vuetify.dataFooter.itemsPerPageAll' }];
 const headers = [
   {
