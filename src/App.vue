@@ -12,16 +12,8 @@
 
     <v-navigation-drawer v-model="drawer">
       <v-list nav dense>
-        <v-list-item
-          title="商品台帳"
-          to="/items"
-          @click="hideDrawer"
-        ></v-list-item>
-        <v-list-item
-          title="払出記録"
-          to="/payments"
-          @click="hideDrawer"
-        ></v-list-item>
+        <v-list-item title="商品台帳" to="/items" @click="hideDrawer"></v-list-item>
+        <v-list-item title="払出記録" to="/payments" @click="hideDrawer"></v-list-item>
       </v-list>
     </v-navigation-drawer>
 
@@ -32,7 +24,7 @@
 </template>
 
 <script lang="ts" setup>
-import { ref } from "vue";
+import { ref } from 'vue';
 const drawer = ref(false);
 const hideDrawer = () => {
   drawer.value = false;

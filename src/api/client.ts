@@ -1,6 +1,6 @@
-import axios from "axios"
-export const client = createClient()
+import axios from 'axios';
+export const client = createClient();
 
-function createClient () {
-  return axios.create({ withCredentials: true })
+function createClient() {
+  return axios.create({ withCredentials: true });
 }
