@@ -42,6 +42,6 @@ const headers = [
     key: 'paymentType',
     value: (item) => PAYMENT_TYPE[item.paymentType],
   },
-  { title: '数量', align: 'end', key: 'paymentCount' },
+  { title: '数量', align: 'end', key: 'paymentAmount' },
 ];
 </script>
