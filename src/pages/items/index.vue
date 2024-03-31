@@ -1,9 +1,5 @@
 <template>
-  <v-container>
-      TBD
-  </v-container>
+  <v-container> TBD </v-container>
 </template>
 
-<script lang="ts" setup>
-
-</script>
+<script lang="ts" setup></script>
