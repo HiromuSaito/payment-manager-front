@@ -13,8 +13,8 @@
 </template>
 
 <script lang="ts" setup>
-import PaymentsTable from '@/components/payments/PaymentsTable.vue';
-import router from '@/router';
+import PaymentsTable from '../../components/payments/PaymentsTable.vue';
+import router from '../../router';
 
 const register = () => {
   router.push({
