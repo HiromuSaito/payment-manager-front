@@ -2,7 +2,7 @@
   <v-data-table
     v-model:items-per-page="paymentsPerPage"
     :headers="headers"
-    :items="items"
+    :items="payments"
     :items-per-page-options="pages"
     items-per-page-text="表示件数"
     class="elevation-1"
@@ -11,13 +11,15 @@
 </template>
 <script setup lang="ts">
 import { ref } from 'vue';
-import itemsApi from '../../api/items';
+import payment from '../../api/payment';
+import { PAYMENT_TYPE } from '../../const/';
 
-const items = ref([]);
-itemsApi
+const payments = ref([]);
+payment
   .getList()
   .then((res) => {
-    items.value = res.data.items;
+    console.log(res);
+    payments.value = res.data.payments;
   })
   .catch((e) => {
     console.log(e);
@@ -27,18 +29,19 @@ const paymentsPerPage = ref(-1); // ALL
 const pages = [{ value: -1, title: '$vuetify.dataFooter.itemsPerPageAll' }];
 const headers = [
   {
-    title: '商品コード',
+    title: 'ID',
     align: 'end',
-    sortable: true,
-    key: 'itemCode',
+    sortable: false,
+    key: 'paymentId',
   },
-  { title: 'メーカーコード', align: 'end', key: 'manufacturerCode' },
-  { title: '商品名', align: 'end', key: 'itemName' },
+  { title: '払出日', align: 'end', key: 'paymentDate' },
+  { title: '商品コード', align: 'end', key: 'itemCode' },
   {
-    title: '販売状況',
+    title: '払出種別',
     align: 'end',
-    key: 'isEOP',
-    value: (item) => (item.isEOP ? '廃盤' : '販売中'),
+    key: 'paymentType',
+    value: (item) => PAYMENT_TYPE[item.paymentType],
   },
+  { title: '数量', align: 'end', key: 'paymentAmount' },
 ];
 </script>

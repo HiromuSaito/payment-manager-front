@@ -6,15 +6,15 @@
         <v-btn class="mb-2" rounded="xl" @click="register">+</v-btn>
       </v-row>
       <v-row>
-        <ItemsTable />
+        <PaymentsTable />
       </v-row>
     </v-col>
   </v-container>
 </template>
 
 <script lang="ts" setup>
-import ItemsTable from '@/components/items/ItemsTable.vue';
-import router from '@/router';
+import PaymentsTable from '../../components/payments/PaymentsTable.vue';
+import router from '../../router';
 
 const register = () => {
   router.push({

@@ -7,8 +7,9 @@ export {}
 
 declare module 'vue' {
   export interface GlobalComponents {
-    ItemsTable: typeof import('./src/components/items/ItemsTable.vue')['default']
-    RouterLink: typeof import('vue-router')['RouterLink']
-    RouterView: typeof import('vue-router')['RouterView']
+    ItemsTable: (typeof import('./src/components/items/ItemsTable.vue'))['default'];
+    PaymentsTable: (typeof import('./src/components/payments/PaymentsTable.vue'))['default'];
+    RouterLink: (typeof import('vue-router'))['RouterLink'];
+    RouterView: (typeof import('vue-router'))['RouterView'];
   }
 }

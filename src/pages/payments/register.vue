@@ -9,8 +9,7 @@
         <v-form ref="form" lazy-validation class="w-400">
           <v-text-field v-model="paymentDate" label="払出日" required></v-text-field>
 
-          <v-text-field v-model="itemCode" label="商品コード" required></v-text-field>
-
+          <v-select v-model="itemCode" :items="itemCodes" label="商品コード" required />
           <v-select
             v-model="paymentType"
             :items="items"
@@ -36,6 +35,7 @@ import { ref } from 'vue';
 import router from '../../router';
 import { PAYMENT_TYPE } from '../../const';
 import payment from '../../api/payment';
+import itemsApi from '../../api/items';
 
 const paymentDate = ref('');
 const paymentAmount = ref(0);
@@ -46,6 +46,11 @@ const items = Object.entries(PAYMENT_TYPE).map(([key, value]) => ({
   key,
   value,
 }));
+
+const itemCodes = ref([]);
+itemsApi.getCodeList().then((res) => {
+  itemCodes.value = res.data.itemCodes;
+});
 
 const cancel = () => {
   router.push({ path: '/payments' });
