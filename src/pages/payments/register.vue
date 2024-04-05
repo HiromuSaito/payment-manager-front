@@ -1,12 +1,9 @@
 <template>
   <v-container>
     <v-col>
+      <v-row class="text-h4 mb-12"> 払出登録 </v-row>
       <v-row>
-        払出登録
-        <v-spacer class="mb-16" />
-      </v-row>
-      <v-row>
-        <v-form ref="form" lazy-validation class="w-400">
+        <v-form ref="form" lazy-validation class="w-25">
           <v-row>
             <v-menu ref="menu" :close-on-content-click="false">
               <template v-slot:activator="{ props }">
@@ -26,6 +23,14 @@
               >
               </v-date-picker>
             </v-menu>
+          </v-row>
+          <v-row>
+            <v-btn @click.prevent="toggleReaderBoot" color="primary" class="mb-4"
+              >QRを読み取る</v-btn
+            >
+          </v-row>
+          <v-row v-if="isStartingUp">
+            <qrcode-stream @detect="detect" />
           </v-row>
           <v-row>
             <v-select v-model="itemCode" :items="itemCodes" label="商品コード" required />
@@ -62,6 +67,18 @@ import router from '../../router';
 import { PAYMENT_TYPE } from '../../const';
 import payment from '../../api/payment';
 import itemsApi from '../../api/items';
+import { QrcodeStream } from 'vue-qrcode-reader';
+
+const isStartingUp = ref(false);
+
+const detect = (content) => {
+  isStartingUp.value = false;
+  itemCode.value = content[0].rawValue;
+};
+
+const toggleReaderBoot = () => {
+  isStartingUp.value = !isStartingUp.value;
+};
 
 const paymentDate = ref();
 const paymentFormattedDate = ref();
@@ -99,3 +116,10 @@ const register = async () => {
   router.push({ path: '/payments' });
 };
 </script>
+
+<style scoped>
+.qr-reader {
+  width: 64px;
+  height: 64px;
+}
+</style>
