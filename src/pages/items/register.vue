@@ -1,12 +1,9 @@
 <template>
   <v-container>
     <v-col>
+      <v-row class="text-h4 mb-12"> 商品登録 </v-row>
       <v-row>
-        商品登録
-        <v-spacer class="mb-16" />
-      </v-row>
-      <v-row>
-        <v-form ref="form" lazy-validation class="w-400">
+        <v-form ref="form" lazy-validation class="w-25">
           <v-text-field v-model="itemCode" label="商品コード" required></v-text-field>
           <v-text-field v-model="itemName" label="商品名" required></v-text-field>
           <v-text-field

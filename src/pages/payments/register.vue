@@ -1,7 +1,7 @@
 <template>
   <v-container>
     <v-col>
-      <v-row class="text-h4 mb-16"> 払出登録 </v-row>
+      <v-row class="text-h4 mb-12"> 払出登録 </v-row>
       <v-row>
         <v-form ref="form" lazy-validation class="w-25">
           <v-row>
